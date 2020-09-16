@@ -1,0 +1,61 @@
+let x = 40;
+let y;
+let num = 22; //variables
+
+
+function setup() { //funcion de configuracion
+  createCanvas(500, 500); //creacion de canvas
+  noStroke();
+  noLoop(); //aun no ha empezado el ciclo
+
+}
+
+function draw() {
+  background(208, 211, 212); //color fondo
+
+  //rectangulos amarillos/ROSADOS
+  y = 40;
+  for (let i = 0; i < num; i++) { //ciclo for rectangulos amarillos
+    fill(248, 196, 113);
+    rect(405, y, 30, 10);
+    y += 20;
+  }
+  y = 50;
+  for (let i = 0; i < num; i++) { //ciclo for para los reactangulos rosados
+    fill(241, 148, 138);
+    rect(425, y, 30, 10);
+    y += 20;
+
+    //linea aqua //ciclo movimiento
+    x = x + 0.1;
+    if (x > width) {
+      x = 20;
+    }
+    fill(69, 179, 157);
+    rect(x, 0, 10, height);
+
+    //círculos verdes 
+    x = x + 0.1; //velocidad
+    if (x > width) { //x debe ser menor al ancho
+      x = 20; //posición
+    }
+    fill(125, 206, 160);
+    ellipse(x - 30, 200, 30, 30);
+    ellipse(x - 30, 250, 30, 30);
+    ellipse(x - 30, 300, 30, 30)
+
+
+    textSize(35); //texto
+    fill(45)
+    text("Welcome", 250, 250);
+  }
+}
+
+function mousePressed() { //funcion de botón presionado
+  loop();
+}
+
+function mouseReleased() { //funcion de botón sin presionar
+  noLoop();
+
+}
